@@ -2,7 +2,11 @@ import { MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-export const ChatBubble = () => {
+interface ChatBubbleProps {
+  onPlayDemo: () => void;
+}
+
+export const ChatBubble = ({ onPlayDemo }: ChatBubbleProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,8 +41,16 @@ export const ChatBubble = () => {
               <p className="text-sm mb-3">
                 Click below for a quick demo call:
               </p>
-              <Button variant="outline" size="sm" className="w-full">
-                🎧 Call Demo: (555) 123-4567
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full"
+                onClick={() => {
+                  setIsOpen(false);
+                  onPlayDemo();
+                }}
+              >
+                🎧 Play Voice Demo
               </Button>
             </div>
           </div>

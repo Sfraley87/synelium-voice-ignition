@@ -3,9 +3,10 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 interface HeroProps {
   onBookDemo: () => void;
+  onPlayDemo: () => void;
 }
 
-export const Hero = ({ onBookDemo }: HeroProps) => {
+export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
       {/* Animated background gradient */}
@@ -48,6 +49,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
           <Button 
             variant="outline" 
             size="xl"
+            onClick={onPlayDemo}
             className="group"
           >
             See How It Sounds

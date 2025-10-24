@@ -8,25 +8,32 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
 import { BookDemoDialog } from "@/components/BookDemoDialog";
+import { DemoAudioDialog } from "@/components/DemoAudioDialog";
 
 const Index = () => {
   const [isDemoDialogOpen, setIsDemoDialogOpen] = useState(false);
+  const [isAudioDemoOpen, setIsAudioDemoOpen] = useState(false);
 
   const handleBookDemo = () => {
     setIsDemoDialogOpen(true);
   };
 
+  const handlePlayDemo = () => {
+    setIsAudioDemoOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Hero onBookDemo={handleBookDemo} />
+      <Hero onBookDemo={handleBookDemo} onPlayDemo={handlePlayDemo} />
       <ProblemSection />
       <SolutionSection />
       <ValueStack onBookDemo={handleBookDemo} />
       <Testimonials />
       <CTASection />
       <Footer />
-      <ChatBubble />
+      <ChatBubble onPlayDemo={handlePlayDemo} />
       <BookDemoDialog open={isDemoDialogOpen} onOpenChange={setIsDemoDialogOpen} />
+      <DemoAudioDialog open={isAudioDemoOpen} onOpenChange={setIsAudioDemoOpen} />
     </div>
   );
 };
