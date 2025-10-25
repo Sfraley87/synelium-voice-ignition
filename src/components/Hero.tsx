@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface HeroProps {
   onBookDemo: () => void;
@@ -7,6 +8,8 @@ interface HeroProps {
 }
 
 export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
       {/* Animated background gradient */}
@@ -40,10 +43,11 @@ export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
           <Button 
             variant="hero" 
             size="xl"
-            onClick={onBookDemo}
+            onClick={() => navigate("/checkout")}
             className="group"
           >
-            🚀 Book Your Free Voice Bot Demo
+            <ShoppingCart className="mr-2 w-5 h-5" />
+            Get Started Now
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
@@ -54,6 +58,14 @@ export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
           >
             See How It Sounds
             <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+          </Button>
+          <Button 
+            variant="outline" 
+            size="xl"
+            onClick={onBookDemo}
+            className="group"
+          >
+            Book Free Demo
           </Button>
         </div>
 
