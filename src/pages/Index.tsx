@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
 import { BookDemoDialog } from "@/components/BookDemoDialog";
 import { DemoAudioDialog } from "@/components/DemoAudioDialog";
+import { GHLForm } from "@/components/GHLForm";
 
 const Index = () => {
   const [isDemoDialogOpen, setIsDemoDialogOpen] = useState(false);
@@ -30,6 +31,7 @@ const Index = () => {
       <ValueStack onBookDemo={handleBookDemo} />
       <Testimonials />
       <CTASection />
+      <GHLForm title="Join the waitlist" />
       <Footer />
       <ChatBubble onPlayDemo={handlePlayDemo} />
       <BookDemoDialog open={isDemoDialogOpen} onOpenChange={setIsDemoDialogOpen} />

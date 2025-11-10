@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "@/context/CartContext";
 
 interface HeroProps {
   onBookDemo: () => void;
@@ -9,6 +10,17 @@ interface HeroProps {
 
 export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
   const navigate = useNavigate();
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({
+      id: "voice-bot-solution",
+      name: "Voice Bot Solution",
+      price: 499,
+      quantity: 1,
+    });
+    navigate("/cart");
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
@@ -43,11 +55,11 @@ export const Hero = ({ onBookDemo, onPlayDemo }: HeroProps) => {
           <Button 
             variant="hero" 
             size="xl"
-            onClick={() => navigate("/checkout")}
+            onClick={handleAddToCart}
             className="group"
           >
             <ShoppingCart className="mr-2 w-5 h-5" />
-            Get Started Now
+            Add to Cart
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
