@@ -1,76 +1,80 @@
 import { CheckCircle2, Clock, Brain, Zap } from "lucide-react";
 
 export const SolutionSection = () => {
-  const features = [
+  const workflow = [
     {
       icon: Clock,
       stat: "24/7",
-      title: "Always Available",
-      description: "Never miss a call again - your AI answers instantly, day or night",
+      title: "Instant answer routing",
+      description:
+        "Talkie Talk answers or texts back within seconds, triages intent, and captures the information your team needs to wow the customer.",
     },
     {
       icon: Brain,
-      stat: "100%",
-      title: "Personalized Responses",
-      description: "Trained on your business - sounds like your best employee",
+      stat: "On-brand",
+      title: "Voice that feels familiar",
+      description:
+        "Upload scripts, FAQs, and brand notes to fine-tune the personality. Responses stay consistent whether it’s 2 PM or 2 AM.",
     },
     {
       icon: Zap,
       stat: "<3s",
-      title: "Lightning Fast",
-      description: "Answers in under 3 seconds - before customers hang up",
+      title: "Automations that close loops",
+      description:
+        "Stripe payment links, appointment confirmations, and CRM updates happen automatically while customers are still engaged.",
     },
     {
       icon: CheckCircle2,
-      stat: "90%",
-      title: "Booking Rate",
-      description: "Converts more calls to appointments than human receptionists",
+      stat: "98%",
+      title: "Quality you can trust",
+      description:
+        "Monitor every interaction with transcripts, sentiment tracking, and customizable guardrails before rollout.",
     },
   ];
 
   return (
-    <section className="py-20 px-4">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Meet Your New <span className="bg-gradient-primary bg-clip-text text-transparent">AI Team Member</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            The always-on voice bot that answers, books, and closes leads while you focus on what matters
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-glow group"
-            >
-              <div className="mb-4 flex items-center justify-between">
-                <feature.icon className="w-8 h-8 text-primary" />
-                <span className="text-3xl font-black bg-gradient-primary bg-clip-text text-transparent">
-                  {feature.stat}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
+    <section className="relative overflow-hidden py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08),_transparent_65%)]" />
+      <div className="container relative z-10 mx-auto max-w-6xl px-4">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-200">
+              How Talkie Talk works
             </div>
-          ))}
-        </div>
+            <h2 className="mt-6 text-4xl font-black tracking-tight text-foreground sm:text-5xl">
+              Automate the grunt work, keep the human magic.
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground sm:text-xl">
+              We combine natural conversation, smart workflows, and real-time analytics so customer-facing teams stay focused on high-value work.
+            </p>
+            <div className="mt-8 grid gap-3 rounded-2xl border border-border/50 bg-card/70 p-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-foreground">
+                <span className="font-semibold text-primary">01</span> Sync your calendars, CRM, and Stripe account.
+              </div>
+              <div className="flex items-center gap-2 text-foreground">
+                <span className="font-semibold text-primary">02</span> Train Talkie Talk using guided scripts and sample calls.
+              </div>
+              <div className="flex items-center gap-2 text-foreground">
+                <span className="font-semibold text-primary">03</span> Launch, monitor, and tweak inside your analytics dashboard.
+              </div>
+            </div>
+          </div>
 
-        {/* Key stat callout */}
-        <div className="bg-gradient-glow border border-primary/30 rounded-2xl p-8 text-center">
-          <p className="text-6xl font-black bg-gradient-primary bg-clip-text text-transparent mb-4">
-            90%
-          </p>
-          <p className="text-xl font-semibold mb-2">
-            of customers call competitors after one missed call
-          </p>
-          <p className="text-muted-foreground">
-            Don't let another lead slip away
-          </p>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {workflow.map((item) => (
+              <div
+                key={item.title}
+                className="h-full rounded-3xl border border-border/40 bg-card/80 p-6 shadow-lg shadow-primary/5 transition-all hover:-translate-y-1 hover:border-primary/40"
+              >
+                <div className="flex items-center justify-between text-primary">
+                  <item.icon className="h-7 w-7" />
+                  <span className="text-sm font-semibold uppercase tracking-widest text-primary/80">{item.stat}</span>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
